@@ -7,7 +7,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 const sagaMiddleware = createSagaMiddleware();
 
 export const rootReducer = combineReducers({
-  userReducer,
+  userReducer
 })
 
 export const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(sagaMiddleware)));

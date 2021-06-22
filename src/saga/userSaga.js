@@ -2,7 +2,6 @@ import { put, takeEvery, call } from 'redux-saga/effects'
 
 import { IMPORT_USERS, setUsers } from '../store/userReducer';
 
-// const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users')
 async function importData() {
   const result = await fetch(`https://jsonplaceholder.typicode.com/users`)
     .then((response) => {
@@ -10,7 +9,7 @@ async function importData() {
       return response.json();
     })
     .catch((error) => {
-      throw error;
+      console.log('broooh, some problems occured')
     });
 
   return result;

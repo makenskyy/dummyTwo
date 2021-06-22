@@ -8,7 +8,6 @@ import { fetchUsers, FETCH_USERS } from './store/userReducer';
 function App() {
 
   const users = useSelector(state => state.userReducer.users);
-  const count = useSelector(state => state.countReducer.count);
   const dispatch = useDispatch();
 
   return (

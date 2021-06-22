@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'bootstrap';
-import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchUsers, FETCH_USERS } from './store/userReducer';
+import { importUsers, IMPORT_USERS } from './store/userReducer';
+import { Table } from 'react-bootstrap'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 function App() {
@@ -11,15 +12,43 @@ function App() {
   const dispatch = useDispatch();
 
   return (
-    <div className="App">
-      <button onClick={() => dispatch({ type: FETCH_USERS })}>Import all users</button>
-      <div>
-        {users.map(user => {
-          <h1>{user.name}</h1>
-        })}
-      </div>
+    <div className={"text-center"}>
+      <button onClick={() => dispatch(importUsers())}>Import all users</button>
       <h1>{users.length}</h1>
+
+
+      <Table striped bordered hover>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>username</th>
+            <th>email</th>
+          </tr>
+        </thead>
+
+        {users.length > 0 ?
+          <tbody>
+            {users.map(user => {
+              return (
+                <tr>
+                  <td>{user.id}</td>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.email}</td>
+                </tr>)
+            })}
+
+          </tbody> : null
+        }
+
+      </Table>
+
+
     </div>
+
+
+
   );
 }
 

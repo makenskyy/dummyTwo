@@ -1,9 +1,9 @@
 import { put, takeEvery, call } from 'redux-saga/effects'
 
-import { FETCH_USERS, setUsers } from '../store/userReducer';
+import { IMPORT_USERS, setUsers } from '../store/userReducer';
 
 // const fetchUsersFromApi = () => fetch('https://jsonplaceholder.typicode.com/users')
-async function fetchUsersFromApi() {
+async function importData() {
   const result = await fetch(`https://jsonplaceholder.typicode.com/users`)
     .then((response) => {
       // console.log(response);
@@ -17,11 +17,11 @@ async function fetchUsersFromApi() {
 }
 
 function* fetchUserWorker() {
-  const data = yield call(fetchUsersFromApi);
+  const data = yield call(importData);
   console.log(data);
   yield put(setUsers(data));
 }
 
 export function* userWatcher() {
-  yield takeEvery(FETCH_USERS, fetchUserWorker);
+  yield takeEvery(IMPORT_USERS, fetchUserWorker);
 }

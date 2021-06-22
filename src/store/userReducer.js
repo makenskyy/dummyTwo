@@ -3,7 +3,7 @@ const defaultState = {
 }
 
 export const SET_USERS = "SET_USERS";
-export const FETCH_USERS = "FETCH_USERS";
+export const IMPORT_USERS = "IMPORT_USERS";
 
 export const userReducer = (state = defaultState, action) => {
   switch (action.type) {
@@ -14,6 +14,6 @@ export const userReducer = (state = defaultState, action) => {
 }
 
 export const setUsers = payload => ({ type: SET_USERS, payload });
-export const fetchUsers = () => ({ type: FETCH_USERS });
+export const importUsers = () => ({ type: IMPORT_USERS });
 
 

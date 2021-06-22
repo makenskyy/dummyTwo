@@ -15,35 +15,36 @@ function App() {
     <div className={"text-center"}>
       <button onClick={() => dispatch(importUsers())}>Import all users</button>
       <h1>{users.length}</h1>
+      <div className="row justify-content-center">
+        <div className={"col-auto"}>
+          <Table striped bordered hover style={{ width: "60rem" }}>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>username</th>
+                <th>email</th>
+              </tr>
+            </thead>
 
+            {users.length > 0 ?
+              <tbody>
+                {users.map(user => {
+                  return (
+                    <tr>
+                      <td>{user.id}</td>
+                      <td>{user.name}</td>
+                      <td>{user.email}</td>
+                      <td>{user.email}</td>
+                    </tr>)
+                })}
 
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>username</th>
-            <th>email</th>
-          </tr>
-        </thead>
+              </tbody> : null
+            }
 
-        {users.length > 0 ?
-          <tbody>
-            {users.map(user => {
-              return (
-                <tr>
-                  <td>{user.id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.email}</td>
-                </tr>)
-            })}
-
-          </tbody> : null
-        }
-
-      </Table>
-
+          </Table>
+        </div>
+      </div>
 
     </div>
 

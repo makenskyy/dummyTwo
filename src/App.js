@@ -13,11 +13,12 @@ function App() {
   return (
     <div className="App">
       <button onClick={() => dispatch({ type: FETCH_USERS })}>Import all users</button>
-      {users.map(user => {
-        <h1>{user.name}</h1>
-      })}
+      <div>
+        {users.map(user => {
+          <h1>{user.name}</h1>
+        })}
+      </div>
       <h1>{users.length}</h1>
-      <h1>{count}</h1>
     </div>
   );
 }
